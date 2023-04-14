@@ -58,6 +58,3 @@ class TestWin(QWidget):
         self.hide()
         self.next_screen = MainWin()
     
-app = QApplication([])
-nw = TestWin()
-app.exec_()
