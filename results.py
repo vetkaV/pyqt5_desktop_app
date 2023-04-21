@@ -26,7 +26,4 @@ class MainWin(QWidget):
         
     def connects(self):
         pass
-app = QApplication([])
-mw = MainWin()
-app.exec_()
 
