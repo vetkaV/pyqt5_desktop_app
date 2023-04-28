@@ -4,7 +4,12 @@ from PyQt5.QtWidgets import *
 from results import *
 from PyQt5.QtGui import QFont
 
-
+class Experiment():
+    def __init__(self,age,t1,t2,t3):
+        self.age = int(age)
+        self.t1 = t1
+        self.t2 = t2
+        self.t3 = t3 
 class TestWin(QWidget):
     def __init__ (self):
         super().__init__()
@@ -74,7 +79,8 @@ class TestWin(QWidget):
     
     def next_click(self):
         self.hide()
-        self.next_screen = MainWin()
+        self.exp = Experiment(self.blank2.text(),self.blank3.text(),self.blank4.text(),self.blank5.text())
+        self.next_screen = MainWin(self.exp)
     
     def timer_test(self):
         global time
@@ -118,5 +124,6 @@ class TestWin(QWidget):
             self.text_timer.setStyleSheet('color: rgb(0,255,0)')
         else:
             self.text_timer.setStyleSheet('color: rgb(0,0,0)')
-        
+        if time.toString('hh:mm:ss')[6:8]== '00':
+            self.timer.stop()
     
